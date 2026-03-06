@@ -1,3 +1,5 @@
+![Logo](logo.png)
+
 # Java Data Structures and Algos 
 ### leetocode and extra problems for mastering 
 
