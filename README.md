@@ -1,11 +1,7 @@
-<p align="center">
-  <img src="logo.png" alt="Logo" width="full"/>
-</p>
-
 # Java Data Structures and Algos 
-### leetocode and extra problems for mastering DSA
+### leetocode and extra problems for mastering 
 
-``Java programs for learning fundamental concepts and algorithms.``
+Java programs for learning fundamental concepts and algorithms.
 
 ## What's Inside
 
