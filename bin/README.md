@@ -1,31 +1,18 @@
-# Java Practice Repository
+<p align="center">
+  <img src="logo.png" alt="Logo" width="full"/>
+</p>
 
-A collection of Java programs demonstrating fundamental concepts and algorithms.
+# Java Data Structures and Algos 
+### leetocode and extra problems for mastering DSA
 
-## Contents
+``Java programs for learning fundamental concepts and algorithms.``
 
-- **ArrayListDemo.java** - ArrayList operations and examples
-- **Arrays.java** - Array manipulation and utilities
-- **Strings.Java** - String handling demonstrations
-- **sorting_algos/** - Sorting and searching algorithms
-  - BinarySearch.java - Binary search implementation
-  - SortBubble.java - Bubble sort algorithm
-  - SortSelection.java - Selection sort algorithm
+## What's Inside
 
-## Running the Programs
+**Arrays** - ArrayList and array operations  
+**String** - String manipulation and problems  
+**Linked Lists** - Linked Lists manipulation and problems  
+**sorting_algos** - Sorting and searching algorithms  
+**extra problems** - Additional practice problems
 
-Compile any Java file:
-```bash
-javac <filename>.java
-```
 
-Run the compiled class:
-```bash
-java <classname>
-```
-
-## Example
-```bash
-javac sorting_algos/BinarySearch.java
-java sorting_algos.BinarySearch
-```
