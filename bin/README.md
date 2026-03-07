@@ -1,9 +1,9 @@
 ![Logo](logo.png)
 
 # Java Data Structures and Algos 
-### leetocode and extra problems for mastering 
+### leetocode and extra problems for mastering DSA
 
-Java programs for learning fundamental concepts and algorithms.
+``Java programs for learning fundamental concepts and algorithms.``
 
 ## What's Inside
 
@@ -14,3 +14,12 @@ Java programs for learning fundamental concepts and algorithms.
 **extra problems** - Additional practice problems
 
 
+## Fun Projects
+```java
+
+public class miniProjects{
+    public void musicPlayer{
+        // music player using linkedlists whole basket of things . 
+    }
+}
+```

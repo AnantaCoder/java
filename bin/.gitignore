@@ -1,5 +1,7 @@
 # Compiled class files
 *.class
-
+*.bin
+*.bin/
+bin/
 # VS Code settings
 .vscode/
