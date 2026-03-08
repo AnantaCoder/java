@@ -1,5 +1,8 @@
 package String;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class StringMediumHard {
     public String totalSubstring(String s) {
 
@@ -55,15 +58,15 @@ public class StringMediumHard {
     public String reverseWords(String s) {
 
         StringBuilder reversed = new StringBuilder();
-        String[] words = s.trim().split("\\s+"); 
+        String[] words = s.trim().split("\\s+");
         int n = words.length;
-        for(int i= n-1;i>=0;i--){
+        for (int i = n - 1; i >= 0; i--) {
             reversed.append(words[i]);
-            if(i!=0){
+            if (i != 0) {
                 reversed.append(" ");
             }
         }
-        
+
         return reversed.toString();
     }
 
@@ -76,52 +79,82 @@ public class StringMediumHard {
         int D = 500;
         int M = 1000;
         int result = 0;
-        for(int i=0;i<s.length();i++){
-            int S =s.charAt(i);
-            if(S == 'I') result+=I;
-            else if(S == 'V') result+=V;
-            else if(S == 'X') result+=X;
-            else if(S == 'L') result+=L;
-            else if(S == 'C') result+=C;
-            else if(S == 'D') result+=D;
-            else if(S == 'M') result+=M;
+        for (int i = 0; i < s.length(); i++) {
+            int S = s.charAt(i);
+            if (S == 'I')
+                result += I;
+            else if (S == 'V')
+                result += V;
+            else if (S == 'X')
+                result += X;
+            else if (S == 'L')
+                result += L;
+            else if (S == 'C')
+                result += C;
+            else if (S == 'D')
+                result += D;
+            else if (S == 'M')
+                result += M;
         }
-        if(s.contains("IV") || s.contains("IX")) result-=2*I;
-        if(s.contains("XL") || s.contains("XC")) result-=2*X;
-        if(s.contains("CD") || s.contains("CM")) result-=2*C;
+        if (s.contains("IV") || s.contains("IX"))
+            result -= 2 * I;
+        if (s.contains("XL") || s.contains("XC"))
+            result -= 2 * X;
+        if (s.contains("CD") || s.contains("CM"))
+            result -= 2 * C;
         return result;
-        
 
     }
 
-
     public String findDifferentBinaryString(String[] nums) {
         // leetcode - 1980: find unique binary string :--
-        // we can find the opposite of that number to optimally find it 
-        // without generating all the numbers 
+        // we can find the opposite of that number to optimally find it
+        // without generating all the numbers
 
         StringBuilder result = new StringBuilder();
 
-        for(int i=0;i<nums.length;i++){
+        for (int i = 0; i < nums.length; i++) {
             char currentPointer = nums[i].charAt(i);
-            result.append(currentPointer =='0'?'1':'0');
-            System.out.println("REsult : "+result);
-            
+            result.append(currentPointer == '0' ? '1' : '0');
+            System.out.println("REsult : " + result);
+
         }
         return result.toString();
     }
 
+    public int lengthOfLongestSubstring(String s) {
+        // leetcode: 3. Longest substring without reapeating charecters . brute force approach . triversing the whole thing 
+        int max = 0;
+        for (int i = 0; i < s.length(); i++) {
+
+            HashSet<Character> sequence = new HashSet<>();
+            int current = 0;
+            for (int j = i; j < s.length(); j++) {
+                char ch = s.charAt(j);
+                if (sequence.contains(ch)) {
+                    break;
+                }
+
+                sequence.add(ch);
+                current++;
+
+                max = Math.max(max, current);
+            }
+        }
+        return max;
+    }
 
     public static void main(String[] args) {
         StringMediumHard obj = new StringMediumHard();
-        String s = "aabcb";
+        String s = "abcabcbb";
         String str = " This is a a moon landing job ";
         String result = obj.totalSubstring(s);
         System.out.println("Total substrings of '" + s + "' is: " + result + " and the total number of substrings is "
                 + result.split(",").length);
 
         System.err.println("Sum of beauty : " + obj.sumOfBeautyOfSubstring(s));
-        System.out.println("reversed : "+obj.reverseWords(str));
-        System.out.println("reversed : "+obj.romanToInt("IV"));
+        System.out.println("reversed : " + obj.reverseWords(str));
+        System.out.println("reversed : " + obj.romanToInt("IV"));
+        System.out.println("Maximum number leangh of unique substring is : "+obj.lengthOfLongestSubstring(s));
     }
 }
