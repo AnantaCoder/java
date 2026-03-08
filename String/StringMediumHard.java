@@ -94,6 +94,24 @@ public class StringMediumHard {
 
     }
 
+
+    public String findDifferentBinaryString(String[] nums) {
+        // leetcode - 1980: find unique binary string :--
+        // we can find the opposite of that number to optimally find it 
+        // without generating all the numbers 
+
+        StringBuilder result = new StringBuilder();
+
+        for(int i=0;i<nums.length;i++){
+            char currentPointer = nums[i].charAt(i);
+            result.append(currentPointer =='0'?'1':'0');
+            System.out.println("REsult : "+result);
+            
+        }
+        return result.toString();
+    }
+
+
     public static void main(String[] args) {
         StringMediumHard obj = new StringMediumHard();
         String s = "aabcb";
