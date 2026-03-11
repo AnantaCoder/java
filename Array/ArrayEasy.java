@@ -2,6 +2,7 @@ package Array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
 public class ArrayEasy {
     public int[] merge(int[] nums1, int m, int[] nums2, int n) {
         // leetcode : 88 merge sorted arrays .
@@ -43,7 +44,7 @@ public class ArrayEasy {
          * to ensure the merge result can fit in nums1.
          */
 
-       int[] temp = new int[m+n];
+        int[] temp = new int[m + n];
         int i = 0;
         int j = 0;
         int k = 0;
@@ -73,17 +74,33 @@ public class ArrayEasy {
         return temp;
     }
 
+    public boolean canThreePartsEqualSum(int[] arr) {
+        // so the intuition is to get the total sum --> devide it by 3 --> 
+        int totalSum = 0;
+        int currentSum = 0;
+        int partsFound = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            totalSum += arr[i];
+        }
+        if (totalSum % 3 != 0) return false;
+
+        int idealPartsFound = totalSum / 3;
+
+        for (int i = 0; i < arr.length; i++) {
+            currentSum += arr[i];
+            if (currentSum == idealPartsFound) {
+                partsFound++;
+                currentSum=0;
+            }
+        }
+        return ( partsFound>=3);
+    }
+
     public static void main(String[] args) {
         ArrayEasy obj = new ArrayEasy();
-        int[] nums1 = {1,2,3,0,0,0};
-        int m = 3;
-
-        int[] nums2 = {2,5,6};
-        int n = 3;
-
-        int[] result = obj.merge(nums1, m, nums2, n);
-        System.out.println(Arrays.toString(result));
-
-
+        int[] arr = new int[] { 0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1 };
+        boolean result = obj.canThreePartsEqualSum(arr);
+        System.out.println(result);
     }
 }
