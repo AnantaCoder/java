@@ -35,4 +35,8 @@ public class BitManipulation {
         return complement;
 
     }
+
+    public int mySqrt(int x) {
+     return (int) Math.sqrt(x);   
+}
 }
