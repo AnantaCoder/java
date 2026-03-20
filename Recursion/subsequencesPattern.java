@@ -7,14 +7,14 @@ import java.util.Stack;
 public class subsequencesPattern {
 
     public List<String> generateParenthesis(int n){
-        // leetcode : 22 generate parenthesis 
+        // leetcode-22 generate parenthesis 
 
         List<String> result = new ArrayList<>();
         generate("",n,result);
         return result;
     }
     public void generate(String current, int n , List<String> result){
-        //leetcode : 22 generate parenthesis 
+        //leetcode-22 generate parenthesis 
         if (current.length()==2*n) {
             if(isValidParenthesis(current)) result.add(current);
             return;
@@ -40,7 +40,7 @@ public class subsequencesPattern {
     }
 
     public List<List<Integer>> combinationSum(int[] candidates, int target)   {
-        // leetcode:39 combination sum 
+        // leetcode-39 combination sum 
         // brute force :
         // this is a dfs question :---
         List<List<Integer>> result = new ArrayList<>();

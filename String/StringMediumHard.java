@@ -107,7 +107,7 @@ public class StringMediumHard {
     }
 
     public String findDifferentBinaryString(String[] nums) {
-        // leetcode - 1980: find unique binary string :--
+        // leetcode-1980: find unique binary string :--
         // we can find the opposite of that number to optimally find it
         // without generating all the numbers
 
@@ -123,7 +123,7 @@ public class StringMediumHard {
     }
 
     public int lengthOfLongestSubstring(String s) {
-        // leetcode: 3. Longest substring without reapeating charecters . brute force approach . triversing the whole thing 
+        // leetcode-3. Longest substring without reapeating charecters . brute force approach . triversing the whole thing 
         int max = 0;
         for (int i = 0; i < s.length(); i++) {
 

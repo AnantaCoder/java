@@ -3,7 +3,7 @@ package Array;
 public class ArrayMedium {
 
     public int maxSumDivThree(int[] nums) {
-        // leetcode:1262-Given an integer array nums, return the maximum possible sum of
+        // leetcode-1262-Given an integer array nums, return the maximum possible sum of
         // elements of the array such that it is divisible by three.
         int sum = 0;
 
@@ -44,4 +44,28 @@ public class ArrayMedium {
 
         return 0;
     }
+
+    public boolean searchMatrix(int[][] matrix, int target) {
+        // leetcode-74 search in 2d matrix . 
+
+        // brute force approach 
+        /*int rows = matrix.length;
+        int cols = matrix[0].length;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                
+                if (matrix[i][j] == target) {
+                    return true;
+                }
+            }
+        }
+        return false;*/
+
+
+        // Since the Is sorted in a non decreasing order Then we need to flatten the matrix And apply the binary search if the thing or the target is found then we return positive;
+
+        // matrix[row][column] = number 
+        
+    }
+
 }

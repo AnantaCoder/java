@@ -2,7 +2,7 @@ package String;
 
 public class StringExtras {
     public boolean checkOnesSegment(String s) {
-        // leetcode 1748: Check if Binary String Has at Most One Segment of Ones
+        // leetcode-1748: Check if Binary String Has at Most One Segment of Ones
         int n = s.length();
         if (n <= 0)
             return false;

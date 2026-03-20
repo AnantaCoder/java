@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class oneDArrays {
 
     public int findPeakElement(int[] nums) {
-        //leetcode:162
+        //leetcode-162
         // Linear search
 
         // for (int i = 0; i < nums.length; i++) {
