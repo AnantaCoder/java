@@ -1,3 +1,5 @@
+MVP:::try myself-> if stuck -> see solution -> analyze pattern -> recode without help . 
+
 1. for all problems types pattern wise 
 https://github.com/Chanda-Abdul/Several-Coding-Patterns-for-Solving-Data-Structures-and-Algorithms-Problems-during-Interviews
 
@@ -6,3 +8,6 @@ https://leetcode.com/discuss/post/5886397/dsa-patterns-you-need-to-know-by-anubh
 
 3. Blind 75 leetcode lists 
 https://leetcode.com/discuss/post/460599/blind-75-leetcode-questions-by-krishnade-9xev/
+
+4. Leetcode 75 series for the interviews 
+https://leetcode.com/studyplan/leetcode-75/

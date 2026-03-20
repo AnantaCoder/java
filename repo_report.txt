@@ -1,0 +1,16 @@
+Leetcode Report: -----------
+
+3 - Longest substring without reapeating charecters . brute force approach . triversing the whole thing
+15 - 3Some Given an integer array nums, return all the triplets
+20
+22 - generate parenthesis
+39 - combination sum
+74 - search in 2d matrix 
+88 - merge sorted arrays 
+125
+162
+344
+1262 - Given an integer array nums, return the maximum possible sum of
+1748 - Check if Binary String Has at Most One Segment of Ones
+1768
+1980 - find unique binary string 
