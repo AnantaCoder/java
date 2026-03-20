@@ -46,26 +46,59 @@ public class ArrayMedium {
     }
 
     public boolean searchMatrix(int[][] matrix, int target) {
-        // leetcode-74 search in 2d matrix . 
+        // leetcode-74 search in 2d matrix .
 
-        // brute force approach 
-        /*int rows = matrix.length;
+        // brute force approach
+        /*
+         * int rows = matrix.length;
+         * int cols = matrix[0].length;
+         * for (int i = 0; i < rows; i++) {
+         * for (int j = 0; j < cols; j++) {
+         * 
+         * if (matrix[i][j] == target) {
+         * return true;
+         * }
+         * }
+         * }
+         * return false;
+         */
+
+        // Since the Is sorted in a non decreasing order Then we need to flatten the
+        // matrix And apply the binary search if the thing or the target is found then
+        // we return positive;
+        // intuition Convert 2D matrix into a virtual sorted 1D array and apply binary search using index mapping.
+
+        // matrix[row][column] = number
+        
+        int rows = matrix.length;
         int cols = matrix[0].length;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                
-                if (matrix[i][j] == target) {
-                    return true;
-                }
+
+        int left = 0;
+        int right = rows * cols - 1;
+
+        while (left <= right) {
+
+            int mid = left + (right - left) / 2;
+            int row = mid / cols;
+            int col = mid % cols;
+            int number = matrix[row][col];
+            if (number == target) {
+                return true;
+            } else if (number < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
             }
         }
-        return false;*/
+        return false;
 
+    }
 
-        // Since the Is sorted in a non decreasing order Then we need to flatten the matrix And apply the binary search if the thing or the target is found then we return positive;
-
-        // matrix[row][column] = number 
-        
+    public static void main(String[] args) {
+        ArrayMedium obj = new ArrayMedium();
+        int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };
+        System.out.println(obj.searchMatrix(matrix, 3));
+        System.out.println(obj.searchMatrix(matrix, 13));
     }
 
 }

@@ -127,12 +127,53 @@ public class StringEasy {
             right--;
         }
     }
+
+    public String mergeAlternately(String word1, String word2) {
+        // leetcode-1768
+        /* leetcode75 */
+
+        //  we need to alternatively merge two strings 
+        // first clean them then run a loop and then add them in a string buffer . 
+        // two pointer approach in this
+        
+        // PS:alternatively we can use charecter arrays with new combined length to improve the runtime . 
+        StringBuffer sb = new StringBuffer();
+        int i = 0 ; 
+        int j =0 ;
+        int w1length = word1.length();
+        int w2length = word2.length();
+
+        while (i<w1length && j<w2length) {
+            sb.append(word1.charAt(i));
+            sb.append(word2.charAt(j));
+            i++;
+            j++;
+        }
+        // append the remaining edge case 
+        while (i<w1length) {
+            sb.append(word1.charAt(i));
+            i++;
+        }
+        while (j<w2length) {
+            sb.append(word2.charAt(j));
+            j++;
+        }
+
+        return sb.toString();
+    }
+
+
     public static void main(String[] args) {
         StringEasy obj = new StringEasy();
         String parenthesis = "{}{}{}";
         String s = "A man, a plan, a canal: Panama";
-
+        String word1 = "abc";
+        String word2 = "pqrsef";
         // System.out.println("Is this string valid " + obj.isValid(parenthesis));
-        System.out.println("Is this string Palindrome : " + obj.isPalindromeOptimised(s));
+        // System.out.println("Is this string Palindrome : " + obj.isPalindromeOptimised(s));
+        System.out.println("Merfing 2 words alternatively  : " + obj.mergeAlternately(word1, word2));
+        
+
+
     }
 }
