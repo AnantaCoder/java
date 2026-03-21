@@ -87,13 +87,15 @@ public class StringEasy {
             char l = toLower(s.charAt(left));
             char r = toLower(s.charAt(right));
 
-            if(l!=r) return false;
+            if (l != r)
+                return false;
             right--;
             left++;
 
         }
         return true;
     }
+
     private static boolean isAlphaNumaric(char ch) {
 
         if (ch >= 'a' && ch <= 'z') {
@@ -107,6 +109,7 @@ public class StringEasy {
         }
         return false;
     }
+
     private static char toLower(char c) {
         if (c >= 'A' && c <= 'Z') {
             return (char) (c + 32); // ASCII trick
@@ -114,15 +117,15 @@ public class StringEasy {
         return c;
     }
 
-    public void reverseString(char[] s ){
-        //Reverse String : leetcode-344 
+    public void reverseString(char[] s) {
+        // Reverse String : leetcode-344
         int left = 0;
-        int right = s.length  -1 ;
+        int right = s.length - 1;
 
-        while (left<right) {
+        while (left < right) {
             char temp = s[left];
-            s[left]            = s[right];
-            s[right]=temp;
+            s[left] = s[right];
+            s[right] = temp;
             left++;
             right--;
         }
@@ -130,31 +133,32 @@ public class StringEasy {
 
     public String mergeAlternately(String word1, String word2) {
         // leetcode-1768
-        /* leetcode75 */
+        /* leetcode75-1 */
 
-        //  we need to alternatively merge two strings 
-        // first clean them then run a loop and then add them in a string buffer . 
+        // we need to alternatively merge two strings
+        // first clean them then run a loop and then add them in a string buffer .
         // two pointer approach in this
-        
-        // PS:alternatively we can use charecter arrays with new combined length to improve the runtime . 
+
+        // PS:alternatively we can use charecter arrays with new combined length to
+        // improve the runtime .
         StringBuffer sb = new StringBuffer();
-        int i = 0 ; 
-        int j =0 ;
+        int i = 0;
+        int j = 0;
         int w1length = word1.length();
         int w2length = word2.length();
 
-        while (i<w1length && j<w2length) {
+        while (i < w1length && j < w2length) {
             sb.append(word1.charAt(i));
             sb.append(word2.charAt(j));
             i++;
             j++;
         }
-        // append the remaining edge case 
-        while (i<w1length) {
+        // append the remaining edge case
+        while (i < w1length) {
             sb.append(word1.charAt(i));
             i++;
         }
-        while (j<w2length) {
+        while (j < w2length) {
             sb.append(word2.charAt(j));
             j++;
         }
@@ -162,6 +166,27 @@ public class StringEasy {
         return sb.toString();
     }
 
+    public String gcdOfStrings(String str1, String str2) {
+        // leetcode-1071. Greatest Common Divisor of Strings
+        /* leetcode75-2 */
+        // Step 1: Check validity
+        if (!(str1 + str2).equals(str2 + str1)) {
+            return "No Substring Present";
+        }
+
+        // Step 2: Find GCD of lengths
+        int a = str1.length();
+        int b = str2.length();
+
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+
+        // Step 3: Return substring
+        return str1.substring(0, a);
+    }
 
     public static void main(String[] args) {
         StringEasy obj = new StringEasy();
@@ -169,11 +194,13 @@ public class StringEasy {
         String s = "A man, a plan, a canal: Panama";
         String word1 = "abc";
         String word2 = "pqrsef";
+        String str1 = "abcabc";
+        String str2 = "ab";
         // System.out.println("Is this string valid " + obj.isValid(parenthesis));
-        // System.out.println("Is this string Palindrome : " + obj.isPalindromeOptimised(s));
+        // System.out.println("Is this string Palindrome : " +
+        // obj.isPalindromeOptimised(s));
         System.out.println("Merfing 2 words alternatively  : " + obj.mergeAlternately(word1, word2));
-        
-
+        System.out.println("gcd of the string is   : " + obj.gcdOfStrings(str1, str2));
 
     }
 }
