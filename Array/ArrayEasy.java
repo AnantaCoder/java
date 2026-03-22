@@ -2,6 +2,7 @@ package Array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ArrayEasy {
     public int[] merge(int[] nums1, int m, int[] nums2, int n) {
@@ -75,7 +76,7 @@ public class ArrayEasy {
     }
 
     public boolean canThreePartsEqualSum(int[] arr) {
-        // so the intuition is to get the total sum --> devide it by 3 --> 
+        // so the intuition is to get the total sum --> devide it by 3 -->
         int totalSum = 0;
         int currentSum = 0;
         int partsFound = 0;
@@ -83,7 +84,8 @@ public class ArrayEasy {
         for (int i = 0; i < arr.length; i++) {
             totalSum += arr[i];
         }
-        if (totalSum % 3 != 0) return false;
+        if (totalSum % 3 != 0)
+            return false;
 
         int idealPartsFound = totalSum / 3;
 
@@ -91,16 +93,75 @@ public class ArrayEasy {
             currentSum += arr[i];
             if (currentSum == idealPartsFound) {
                 partsFound++;
-                currentSum=0;
+                currentSum = 0;
             }
         }
-        return ( partsFound>=3);
+        return (partsFound >= 3);
+    }
+
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        // leetcode-1431. Kids With the Greatest Number of
+        /* leetcode75-3 */
+        int n = candies.length;
+        List<Boolean> candiesList = new ArrayList<>();
+        int maxCadies = maxNumberofCandies(candies);
+        for (int i = 0; i < n; i++) {
+            if (candies[i] + extraCandies >= maxCadies) {
+                candiesList.add(true);
+            } else {
+                candiesList.add(false);
+            }
+        }
+        return candiesList;
+    }
+
+    private int maxNumberofCandies(int[] candies) {
+        int max = candies[0];
+        for (int candy : candies) {
+            if (candy > max)
+                max = candy;
+        }
+        return max;
+    }
+
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        // leetcode-605 Can place flowers positioning n alternate position 010 like this ...
+        /* leetcode75-4 */
+        /*
+         * check left and right
+         * if empty place them and then place the flower n -=1
+         */
+        int len = flowerbed.length;
+
+        for (int i = 0; i < len; i++) {
+
+            boolean leftEmpty = false;
+            boolean rightEmpty = false;
+
+            if (flowerbed[i] == 0) {
+                // i=0 , i=2|| i=
+                if (i == 0 || flowerbed[i - 1] == 0)
+                    leftEmpty = true;
+                if (i == len - 1 || flowerbed[i + 1] == 0)
+                    rightEmpty = true;
+
+                if (leftEmpty == true && rightEmpty == true) {
+                    n -= 1;
+                    flowerbed[i] = 1; // ful futeche
+                    i += 1;
+                }
+            }
+        }
+        return (n <= 0);
+
     }
 
     public static void main(String[] args) {
         ArrayEasy obj = new ArrayEasy();
         int[] arr = new int[] { 0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1 };
+        int[] flowerBed = new int[]{1,0,1,0,1,0,0,0,0,0,0,0,0,0,1};
         boolean result = obj.canThreePartsEqualSum(arr);
-        System.out.println(result);
+        boolean canPlant = obj.canPlaceFlowers( flowerBed, 6);
+        System.out.println(canPlant);
     }
 }

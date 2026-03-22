@@ -188,6 +188,36 @@ public class StringEasy {
         return str1.substring(0, a);
     }
 
+    public int minEatingSpeed(int[] piles, int h) {
+        int high = 1;
+        int low = 1;
+
+        for (int i : piles) {
+            high = Math.max(high, i);
+        }
+
+        int ans = high;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            long totalHours = 0;
+
+            for (int i : piles) {
+                totalHours += (i + mid - 1) / mid; // ceil division
+            }
+
+            if (totalHours <= h) {
+                ans = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
+
     public static void main(String[] args) {
         StringEasy obj = new StringEasy();
         String parenthesis = "{}{}{}";
@@ -196,11 +226,13 @@ public class StringEasy {
         String word2 = "pqrsef";
         String str1 = "abcabc";
         String str2 = "ab";
-        // System.out.println("Is this string valid " + obj.isValid(parenthesis));
-        // System.out.println("Is this string Palindrome : " +
-        // obj.isPalindromeOptimised(s));
+        int[] piles = new int[] { 3, 6, 7, 11 };
+        int h = 8;
+        System.out.println("Is this string valid " + obj.isValid(parenthesis));
+        System.out.println("Is this string Palindrome : " + obj.isPalindromeOptimised(s));
         System.out.println("Merfing 2 words alternatively  : " + obj.mergeAlternately(word1, word2));
         System.out.println("gcd of the string is   : " + obj.gcdOfStrings(str1, str2));
+        System.out.println("Coco eats bananas    : " + obj.minEatingSpeed(piles, h));
 
     }
 }
