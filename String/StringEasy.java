@@ -1,6 +1,6 @@
 package String;
 
-import java.util.Stack;
+import java.util.*;
 
 public class StringEasy {
 
@@ -218,6 +218,74 @@ public class StringEasy {
         return ans;
     }
 
+    public String reverseVowels(String s) {
+        // leetcode-345 Reverse vowels of a string
+        /* leetcode75-5 */
+        // all vowels a,e,i,o,u
+        // IceCreAm -> vowels[0]I,vowels[2]e,vowels[5]e,vowels[6]A =>rev=> AceCreIm
+        HashMap<Integer, Character> map = new LinkedHashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'A' || ch == 'E' || ch == 'I'
+                    || ch == 'O' || ch == 'U') {
+                map.put(i, ch);
+            }
+        }
+        // reverse values
+        List<Character> list = new ArrayList<>(map.values());
+        Collections.reverse(list);
+
+        // put back into string
+        char[] charArray = s.toCharArray();
+        int index = 0;
+
+        for (int key : map.keySet()) {
+            charArray[key] = list.get(index++);
+        }
+
+        return new String(charArray);
+
+        //ps: this is not an optimal we can use two poiunter approach as well . 
+
+    }
+
+    public String reverseVowelsPointerApproach(String s ){
+
+        char[] arr = s.toCharArray();
+        int left = 0 ;
+        int right = arr.length -1 ;
+
+        while (left<right) {
+
+                // forward until vowel
+            while (left<right && !isVowel(arr[left])) {
+                left++;
+            }
+            // backword until vowel 
+             while (left<right && !isVowel(arr[right])) {
+                right--;
+            }
+            // swap 
+            char t = arr[left];
+            arr[left] = arr[right];
+            arr[right] = t;
+            left++;
+            right--;
+        }
+
+        return new String(arr);
+    }
+    
+    private static boolean isVowel(char ch){
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'A' || ch == 'E' || ch == 'I'
+                    || ch == 'O' || ch == 'U') {
+                return true;
+            }
+        return false;
+    }
+
+
     public static void main(String[] args) {
         StringEasy obj = new StringEasy();
         String parenthesis = "{}{}{}";
@@ -226,6 +294,7 @@ public class StringEasy {
         String word2 = "pqrsef";
         String str1 = "abcabc";
         String str2 = "ab";
+        String strReverse = "IceCreAm";
         int[] piles = new int[] { 3, 6, 7, 11 };
         int h = 8;
         System.out.println("Is this string valid " + obj.isValid(parenthesis));
@@ -233,6 +302,8 @@ public class StringEasy {
         System.out.println("Merfing 2 words alternatively  : " + obj.mergeAlternately(word1, word2));
         System.out.println("gcd of the string is   : " + obj.gcdOfStrings(str1, str2));
         System.out.println("Coco eats bananas    : " + obj.minEatingSpeed(piles, h));
+        System.out.println("Coco eats bananas    : " + obj.minEatingSpeed(piles, h));
+        System.out.println("Reverse Vowels in the string  : " + obj.reverseVowelsPointerApproach(strReverse));
 
     }
 }
