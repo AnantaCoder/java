@@ -9,7 +9,9 @@ Leetcode Report: -----------
 88 - merge sorted arrays 
 125
 162
+238 - Product of Array Except Self
 344
+345 - Reverse vowels of a string
 605 - Can place flowers positioning n alternate position 010 like this 
 1071 - Greatest Common Divisor of Strings
 1262 - Given an integer array nums, return the maximum possible sum of

@@ -1,5 +1,9 @@
 package Array;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ArrayMedium {
 
     public int maxSumDivThree(int[] nums) {
@@ -93,6 +97,31 @@ public class ArrayMedium {
         return false;
 
     }
+
+
+   public int[] productExceptSelf(int[] nums) {
+    //leetcode-238 Product of Array Except Self 
+    /*leetcode75-6*/
+
+    int n = nums.length;
+    int[] answer = new int[n];
+
+    
+    // slicing and multiplication in two distinct arrays 
+    answer[0] = 1;
+    for (int i = 1; i < n; i++) {
+        answer[i] = answer[i - 1] * nums[i - 1];
+    }
+
+    int right = 1;
+    for (int i = n - 1; i >= 0; i--) {
+        answer[i] = answer[i] * right;
+        right = right * nums[i];
+    }
+
+    return answer;
+}
+
 
     public static void main(String[] args) {
         ArrayMedium obj = new ArrayMedium();
