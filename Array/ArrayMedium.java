@@ -190,6 +190,36 @@ public class ArrayMedium {
         return write;
     }
 
+    public int maxArea(int[]  height){
+        // leetcode-11 container with most water 
+        /*leetcode75-twoPointers-3*/
+
+        
+        int left =0;
+       int right = height.length - 1; //8
+        int maxArea = 0;
+
+        while (left < right) {
+            int width = right - left;
+             int h  = Math.min(height[left], height[right]);
+            int area = width * h;
+
+            if (area>maxArea){
+                maxArea = area;
+            }
+            if(height[left]>height[right]){
+                right --;
+            }
+            else{
+                left++;
+            }
+
+        }
+        return maxArea;
+
+
+    }
+
     public static void main(String[] args) {
         ArrayMedium obj = new ArrayMedium();
         int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };
