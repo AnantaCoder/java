@@ -70,10 +70,11 @@ public class ArrayMedium {
         // Since the Is sorted in a non decreasing order Then we need to flatten the
         // matrix And apply the binary search if the thing or the target is found then
         // we return positive;
-        // intuition Convert 2D matrix into a virtual sorted 1D array and apply binary search using index mapping.
+        // intuition Convert 2D matrix into a virtual sorted 1D array and apply binary
+        // search using index mapping.
 
         // matrix[row][column] = number
-        
+
         int rows = matrix.length;
         int cols = matrix[0].length;
 
@@ -98,36 +99,104 @@ public class ArrayMedium {
 
     }
 
+    public boolean increasingTriplet(int[] nums) {
+        // leetcode-334 Increasing triplet subsequence
+        /* leetcode75-8 */
 
-   public int[] productExceptSelf(int[] nums) {
-    //leetcode-238 Product of Array Except Self 
-    /*leetcode75-6*/
+        // i need to find the 1st , 2nd and 3rd largest number in array
 
-    int n = nums.length;
-    int[] answer = new int[n];
+        int n = nums.length;
+        // brute force -
 
-    
-    // slicing and multiplication in two distinct arrays 
-    answer[0] = 1;
-    for (int i = 1; i < n; i++) {
-        answer[i] = answer[i - 1] * nums[i - 1];
+        // for (int i = 0; i < n; i++) {
+        // for (int j = i + 1; j < n; j++) {
+        // if (nums[j] > nums[i]) {
+        // for (int k = j + 1; k < n; k++) {
+        // if (nums[k] > nums[j]) {
+        // return true;
+        // }
+        // }
+        // }
+        // }
+        // }
+        // return false;
+
+        // greedy optimal approach
+        // goal is if exists then we do this
+
+        int first = Integer.MAX_VALUE;
+        int second = Integer.MAX_VALUE;
+
+        for (int i : nums) {
+            if (i <= first) {
+                first = i;
+            } else if (i <= second) {
+                second = i;
+            } else {
+                return true;
+            }
+        }
+        return false;
+
     }
 
-    int right = 1;
-    for (int i = n - 1; i >= 0; i--) {
-        answer[i] = answer[i] * right;
-        right = right * nums[i];
+    public int[] productExceptSelf(int[] nums) {
+        // leetcode-238 Product of Array Except Self
+        /* leetcode75-6 */
+
+        int n = nums.length;
+        int[] answer = new int[n];
+
+        // slicing and multiplication in two distinct arrays
+        answer[0] = 1;
+        for (int i = 1; i < n; i++) {
+            answer[i] = answer[i - 1] * nums[i - 1];
+        }
+
+        int right = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            answer[i] = answer[i] * right;
+            right = right * nums[i];
+        }
+
+        return answer;
     }
 
-    return answer;
-}
+    public int compress(char[] chars) {
+        // leetcode-443 String Comparison
+        /* leetcode75-9 */
+        // compress by length -> a1b2c3-> return the compresses length
+        int write = 0;
+        int i = 0;
+        while (i < chars.length) {
+            char current = chars[i];
+            int count = 0;
 
+            while (i < chars.length && chars[i] == current) {
+                i++;
+                count++;
+            }
+            chars[write++] = current;
+
+            if (count > 1) {
+                String churreStr = String.valueOf(count);
+                for (char c : churreStr.toCharArray()) {
+                    chars[write++] = c;
+                }
+
+            }
+
+        }
+        return write;
+    }
 
     public static void main(String[] args) {
         ArrayMedium obj = new ArrayMedium();
         int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };
         System.out.println(obj.searchMatrix(matrix, 3));
         System.out.println(obj.searchMatrix(matrix, 13));
+        char[] chars = new char[]{'a','a','b','b','c','c','c'};
+        System.out.println("the length of the compresses string is "+obj.compress(chars));
     }
 
 }

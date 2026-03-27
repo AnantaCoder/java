@@ -246,27 +246,27 @@ public class StringEasy {
 
         return new String(charArray);
 
-        //ps: this is not an optimal we can use two poiunter approach as well . 
+        // ps: this is not an optimal we can use two poiunter approach as well .
 
     }
 
-    public String reverseVowelsPointerApproach(String s ){
+    public String reverseVowelsPointerApproach(String s) {
 
         char[] arr = s.toCharArray();
-        int left = 0 ;
-        int right = arr.length -1 ;
+        int left = 0;
+        int right = arr.length - 1;
 
-        while (left<right) {
+        while (left < right) {
 
-                // forward until vowel
-            while (left<right && !isVowel(arr[left])) {
+            // forward until vowel
+            while (left < right && !isVowel(arr[left])) {
                 left++;
             }
-            // backword until vowel 
-             while (left<right && !isVowel(arr[right])) {
+            // backword until vowel
+            while (left < right && !isVowel(arr[right])) {
                 right--;
             }
-            // swap 
+            // swap
             char t = arr[left];
             arr[left] = arr[right];
             arr[right] = t;
@@ -276,15 +276,30 @@ public class StringEasy {
 
         return new String(arr);
     }
-    
-    private static boolean isVowel(char ch){
+
+    private static boolean isVowel(char ch) {
         if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'A' || ch == 'E' || ch == 'I'
-                    || ch == 'O' || ch == 'U') {
-                return true;
-            }
+                || ch == 'O' || ch == 'U') {
+            return true;
+        }
         return false;
     }
 
+    public boolean isSubsequence(String s, String t) {
+        // leetcode-392 is Sub seqquence
+        /* leetcode75-11 */
+
+        int i = 0;
+        int j = 0;
+
+        while (i < s.length() && j < t.length()) {
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
+            }
+            j++;
+        }
+        return i==s.length();
+    }
 
     public static void main(String[] args) {
         StringEasy obj = new StringEasy();
