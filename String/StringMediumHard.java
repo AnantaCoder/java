@@ -123,7 +123,8 @@ public class StringMediumHard {
     }
 
     public int lengthOfLongestSubstring(String s) {
-        // leetcode-3. Longest substring without reapeating charecters . brute force approach . triversing the whole thing 
+        // leetcode-3. Longest substring without reapeating charecters . brute force
+        // approach . triversing the whole thing
         int max = 0;
         for (int i = 0; i < s.length(); i++) {
 
@@ -144,6 +145,43 @@ public class StringMediumHard {
         return max;
     }
 
+    public int maxVowels(String s, int k) {
+        /* leetcode75-slidingWindow-2 */
+        // leetcode-1456 Maximum Number of Vowels in a Substring of Given Length
+
+        // this is optial solution ts O(n) spoace complexity O(1) no extra data structure 
+        int maxVowels = 0;
+        char[] vowels = s.toCharArray();
+
+        // window one
+        for (int i = 0; i < k; i++) {
+            char ch = Character.toLowerCase(vowels[i]);
+
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                maxVowels += 1;
+            }
+        }
+
+        int currentMaxVowels = maxVowels;
+
+        for (int i = k; i < vowels.length; i++) {
+            char ch = Character.toLowerCase(vowels[i]);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                currentMaxVowels += 1;
+            }
+
+            char left = Character.toLowerCase(vowels[i - k]);
+            if (left == 'a' || left == 'e' || left == 'i' || left == 'o' || left == 'u') {
+                currentMaxVowels -= 1;
+            }
+
+            // update max
+            maxVowels = Math.max(maxVowels, currentMaxVowels);
+
+        }
+        return maxVowels;
+    }
+
     public static void main(String[] args) {
         StringMediumHard obj = new StringMediumHard();
         String s = "abcabcbb";
@@ -155,6 +193,6 @@ public class StringMediumHard {
         System.err.println("Sum of beauty : " + obj.sumOfBeautyOfSubstring(s));
         System.out.println("reversed : " + obj.reverseWords(str));
         System.out.println("reversed : " + obj.romanToInt("IV"));
-        System.out.println("Maximum number leangh of unique substring is : "+obj.lengthOfLongestSubstring(s));
+        System.out.println("Maximum number leangh of unique substring is : " + obj.lengthOfLongestSubstring(s));
     }
 }

@@ -124,8 +124,31 @@ public class ArrayEasy {
         return max;
     }
 
+    public double findMaxAverage(int[] nums, int k) {
+
+        // leetcode-643 maximum avarage subarray
+        /*leetcode75-slidingWindow-1 */
+        int windowsum = 0;
+        for (int i = 0; i < k; i++) {
+            windowsum += nums[i];
+        }
+
+        int maxSum = windowsum;
+
+        for (int i = k; i < nums.length; i++) {
+            windowsum += nums[i];
+            windowsum -= nums[i - k];
+            if (windowsum > maxSum) {
+                maxSum = windowsum;
+            }
+        }
+
+        return (double) maxSum / k;
+    }
+
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
-        // leetcode-605 Can place flowers positioning n alternate position 010 like this ...
+        // leetcode-605 Can place flowers positioning n alternate position 010 like this
+        // ...
         /* leetcode75-4 */
         /*
          * check left and right
@@ -159,9 +182,9 @@ public class ArrayEasy {
     public static void main(String[] args) {
         ArrayEasy obj = new ArrayEasy();
         int[] arr = new int[] { 0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1 };
-        int[] flowerBed = new int[]{1,0,1,0,1,0,0,0,0,0,0,0,0,0,1};
+        int[] flowerBed = new int[] { 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 };
         boolean result = obj.canThreePartsEqualSum(arr);
-        boolean canPlant = obj.canPlaceFlowers( flowerBed, 6);
+        boolean canPlant = obj.canPlaceFlowers(flowerBed, 6);
         System.out.println(canPlant);
     }
 }

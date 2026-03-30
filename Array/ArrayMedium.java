@@ -220,6 +220,60 @@ public class ArrayMedium {
 
     }
 
+    public int maxOperations(int[] nums,int k){
+        //leetcode-1679. Max Number of K-Sum Pairs
+        /*leetcode75- */
+
+        // brute force approach
+        // boolean[] used = new boolean[nums.length];
+        // int count = 0;
+        // for (int i = 0; i < nums.length; i++) {
+        //     if (used[i]) {
+        //         continue;
+        //     }
+        //     for (int j = i+1; j < nums.length; j++) {
+
+        //         if (nums[i]+nums[j]==k && !used[j]) {
+        //             used[i]=true;
+        //             used[j]=true;
+        //             count++;
+        //             break;
+        //         }
+        //     }
+        // }
+        // return count;
+
+        // better two pointers 
+        Arrays.sort(nums);
+        int left  = 0;
+        int right = nums.length -1;
+        int count = 0 ;
+
+        while (left<right) {
+
+            int sum = nums[left] + nums[right];
+            
+
+            if (sum==k) {
+                count++;
+                left++;
+                right--;
+            }
+            else if (sum<k) {
+                left++;
+            }else{
+                right--;
+            }
+            
+        }
+        return count;
+
+
+        // best hashmaps 
+    }
+    
+    
+    
     public static void main(String[] args) {
         ArrayMedium obj = new ArrayMedium();
         int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };

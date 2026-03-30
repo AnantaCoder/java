@@ -1,6 +1,7 @@
 Leetcode Report: -----------
 
-3 - Longest substring without reapeating charecters . brute force approach . triversing the whole thing
+3 - Longest substring without reapeating charecters . brute force
+11 - container with most water
 15 - 3Some Given an integer array nums, return all the triplets
 20
 22 - generate parenthesis
@@ -16,10 +17,13 @@ Leetcode Report: -----------
 374 - Guess Number Higher or Lower
 392 - is Sub seqquence
 443 - String Comparison
-605 - Can place flowers positioning n alternate position 010 like this 
+605 - Can place flowers positioning n alternate position 010 like this
+643 - maximum avarage subarray
 1071 - Greatest Common Divisor of Strings
 1262 - Given an integer array nums, return the maximum possible sum of
 1431 - Kids With the Greatest Number of
+1456 - Maximum Number of Vowels in a Substring of Given Length
+1679 - Max Number of K-Sum Pairs
 1748 - Check if Binary String Has at Most One Segment of Ones
 1768
 1980 - find unique binary string 
