@@ -19,11 +19,15 @@ Leetcode Report: -----------
 443 - String Comparison
 605 - Can place flowers positioning n alternate position 010 like this
 643 - maximum avarage subarray
+724 - find pivot element (left most pivot index
+1004 - Max consicutive ones III 
 1071 - Greatest Common Divisor of Strings
 1262 - Given an integer array nums, return the maximum possible sum of
 1431 - Kids With the Greatest Number of
 1456 - Maximum Number of Vowels in a Substring of Given Length
+1493 - Longest subarray of 1s after deleting one element
 1679 - Max Number of K-Sum Pairs
+1732 - Find the Highest Altitude
 1748 - Check if Binary String Has at Most One Segment of Ones
 1768
 1980 - find unique binary string 

@@ -179,6 +179,39 @@ public class ArrayEasy {
 
     }
 
+    public int largestAltitude(int[] gain){
+        //leetcode-1732. Find the Highest Altitude.
+        /*leetcode75-prefixSum-1*/
+        int c = 0;
+        int m=0;
+        for (int i : gain) {
+            c += i;
+            m = Math.max(c, m);
+        }
+        return m;
+    }
+
+    public int pivotIndex(int[] nums) {
+
+        // leetcode-724 find pivot element (left most pivot index)
+        /*leetcode75-prefixSum-2 */
+        int total = 0;
+        for (int num : nums) total += num;
+
+        int leftSum = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            int rightSum = total - leftSum - nums[i];
+
+            if (leftSum == rightSum) {
+                return i;
+            }
+
+            leftSum += nums[i];
+        }
+
+        return -1;
+    }
     public static void main(String[] args) {
         ArrayEasy obj = new ArrayEasy();
         int[] arr = new int[] { 0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1 };

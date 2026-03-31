@@ -190,97 +190,146 @@ public class ArrayMedium {
         return write;
     }
 
-    public int maxArea(int[]  height){
-        // leetcode-11 container with most water 
-        /*leetcode75-twoPointers-3*/
+    public int maxArea(int[] height) {
+        // leetcode-11 container with most water
+        /* leetcode75-twoPointers-3 */
 
-        
-        int left =0;
-       int right = height.length - 1; //8
+        int left = 0;
+        int right = height.length - 1; // 8
         int maxArea = 0;
 
         while (left < right) {
             int width = right - left;
-             int h  = Math.min(height[left], height[right]);
+            int h = Math.min(height[left], height[right]);
             int area = width * h;
 
-            if (area>maxArea){
+            if (area > maxArea) {
                 maxArea = area;
             }
-            if(height[left]>height[right]){
-                right --;
-            }
-            else{
+            if (height[left] > height[right]) {
+                right--;
+            } else {
                 left++;
             }
 
         }
         return maxArea;
 
-
     }
 
-    public int maxOperations(int[] nums,int k){
-        //leetcode-1679. Max Number of K-Sum Pairs
-        /*leetcode75- */
+    public int maxOperations(int[] nums, int k) {
+        // leetcode-1679. Max Number of K-Sum Pairs
+        /* leetcode75- */
 
         // brute force approach
         // boolean[] used = new boolean[nums.length];
         // int count = 0;
         // for (int i = 0; i < nums.length; i++) {
-        //     if (used[i]) {
-        //         continue;
-        //     }
-        //     for (int j = i+1; j < nums.length; j++) {
+        // if (used[i]) {
+        // continue;
+        // }
+        // for (int j = i+1; j < nums.length; j++) {
 
-        //         if (nums[i]+nums[j]==k && !used[j]) {
-        //             used[i]=true;
-        //             used[j]=true;
-        //             count++;
-        //             break;
-        //         }
-        //     }
+        // if (nums[i]+nums[j]==k && !used[j]) {
+        // used[i]=true;
+        // used[j]=true;
+        // count++;
+        // break;
+        // }
+        // }
         // }
         // return count;
 
-        // better two pointers 
+        // better two pointers
         Arrays.sort(nums);
-        int left  = 0;
-        int right = nums.length -1;
-        int count = 0 ;
+        int left = 0;
+        int right = nums.length - 1;
+        int count = 0;
 
-        while (left<right) {
+        while (left < right) {
 
             int sum = nums[left] + nums[right];
-            
 
-            if (sum==k) {
+            if (sum == k) {
                 count++;
                 left++;
                 right--;
-            }
-            else if (sum<k) {
+            } else if (sum < k) {
                 left++;
-            }else{
+            } else {
                 right--;
             }
-            
+
         }
         return count;
 
-
-        // best hashmaps 
+        // best hashmaps
     }
-    
-    
-    
+
+    public int longestSubarray(int[] nums) {
+        // leetcode-1493 Longest subarray of 1s after deleting one element
+        /* leetcode75-slidingWindow-4 */
+
+        // so we need to fing the array with maximum number of zeros which is one
+        int left = 0;
+        int maxLeangth = 0;
+        int maxZeros = 0;
+
+        // window 1{}
+        for (int right=0; right < nums.length; right++) {
+            if (nums[right] == 0) {
+                maxZeros++;
+            }
+            while (maxZeros>1) {
+                if (nums[left]==0) {
+                    maxZeros--;
+                }
+                left++;
+            }
+            int differance   = right-left;
+
+           maxLeangth = Math.max(maxLeangth, differance);
+        }
+return maxLeangth;
+    }
+
+    public int longestOnes(int[] nums, int k) {
+        // leetcode-1004 Max consicutive ones III */
+        /* leetcode75-slidingwindow-3 */
+        int start = 0;
+        int zeros = 0;
+        int maxLen = 0;
+
+        for (int end = 0; end < nums.length; end++) {
+
+            // add element
+            if (nums[end] == 0)
+                zeros++;
+
+            // shrink window if invalid
+            while (zeros > k) {
+                if (nums[start] == 0)
+                    zeros--;
+                start++;
+            }
+
+            // update max
+            maxLen = Math.max(maxLen, end - start + 1);
+        }
+
+        return maxLen;
+
+    }
+
     public static void main(String[] args) {
         ArrayMedium obj = new ArrayMedium();
         int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };
         System.out.println(obj.searchMatrix(matrix, 3));
         System.out.println(obj.searchMatrix(matrix, 13));
-        char[] chars = new char[]{'a','a','b','b','c','c','c'};
-        System.out.println("the length of the compresses string is "+obj.compress(chars));
+        int[] nums = new int[]{0,1,1,1,0,1,1,0,1};
+        char[] chars = new char[] { 'a', 'a', 'b', 'b', 'c', 'c', 'c' };
+        System.out.println("the length of the compresses string is " + obj.compress(chars));
+        System.out.println("this string with max zeros after removikng one element is : "+obj.longestSubarray(nums));
     }
 
 }
