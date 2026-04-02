@@ -20,14 +20,20 @@ Leetcode Report: -----------
 605 - Can place flowers positioning n alternate position 010 like this
 643 - maximum avarage subarray
 724 - find pivot element (left most pivot index
+735 - Astroid collisions using stack
 1004 - Max consicutive ones III 
 1071 - Greatest Common Divisor of Strings
+1207 - Unique number of Occurances
 1262 - Given an integer array nums, return the maximum possible sum of
 1431 - Kids With the Greatest Number of
 1456 - Maximum Number of Vowels in a Substring of Given Length
 1493 - Longest subarray of 1s after deleting one element
+1657 - Determine if Two Strings Are Close
 1679 - Max Number of K-Sum Pairs
 1732 - Find the Highest Altitude
 1748 - Check if Binary String Has at Most One Segment of Ones
 1768
 1980 - find unique binary string 
+2215 - Find the Difference of Two Arrays
+2353 - Equal row and column pairs
+2390 - Removing Stars From a String

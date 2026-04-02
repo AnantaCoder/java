@@ -15,6 +15,8 @@
 **BitManipulation** - Bit manipulation techniques  
 **Maths** - Math-based problems  
 **Recursion** - Recursion and subsequence patterns  
+**Hash** - HashMap and HashSet problems (easy + medium)  
+**Stack** - Stack-based problems (medium difficulty)  
 **extra problems** - Additional practice problems
 
 ## Patterns
@@ -26,7 +28,8 @@
 **Prefix Sum** - Highest altitude, pivot index  
 **Binary Search** - Search 2D matrix, find peak element, guess number  
 **Recursion / Backtracking** - Generate parentheses, combination sum, subsequences  
-**Stack** - Valid parentheses  
+**Stack** - Valid parentheses, removing stars, asteroid collision  
+**Hash** - Two sum, group anagrams, top K frequent, longest consecutive sequence  
 **Greedy** - Can place flowers, increasing triplet subsequence  
 **Bit Manipulation** - Bit tricks and operations  
 
