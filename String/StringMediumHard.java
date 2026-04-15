@@ -182,6 +182,10 @@ public class StringMediumHard {
         return maxVowels;
     }
 
+    public static String convert(String s, int numRows){
+        // leetcode-6 ZigZag
+        
+    }
     public static void main(String[] args) {
         StringMediumHard obj = new StringMediumHard();
         String s = "abcabcbb";

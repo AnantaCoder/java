@@ -298,7 +298,22 @@ public class StringEasy {
             }
             j++;
         }
-        return i==s.length();
+        return i == s.length();
+    }
+
+    public int firstUniqChar(String s) {
+        // leetcode-387 first unique charecter in string
+       
+        int[] freq = new int[26];
+        for (int i : s.toCharArray()) {
+            freq[i-'a']++;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (freq[s.charAt(i)-'a']==1) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public static void main(String[] args) {

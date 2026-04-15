@@ -3,6 +3,7 @@ package Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.lang.model.util.Elements;
 
 public class ArrayEasy {
     public int[] merge(int[] nums1, int m, int[] nums2, int n) {
@@ -127,7 +128,7 @@ public class ArrayEasy {
     public double findMaxAverage(int[] nums, int k) {
 
         // leetcode-643 maximum avarage subarray
-        /*leetcode75-slidingWindow-1 */
+        /* leetcode75-slidingWindow-1 */
         int windowsum = 0;
         for (int i = 0; i < k; i++) {
             windowsum += nums[i];
@@ -179,11 +180,11 @@ public class ArrayEasy {
 
     }
 
-    public int largestAltitude(int[] gain){
-        //leetcode-1732. Find the Highest Altitude.
-        /*leetcode75-prefixSum-1*/
+    public int largestAltitude(int[] gain) {
+        // leetcode-1732. Find the Highest Altitude.
+        /* leetcode75-prefixSum-1 */
         int c = 0;
-        int m=0;
+        int m = 0;
         for (int i : gain) {
             c += i;
             m = Math.max(c, m);
@@ -194,9 +195,10 @@ public class ArrayEasy {
     public int pivotIndex(int[] nums) {
 
         // leetcode-724 find pivot element (left most pivot index)
-        /*leetcode75-prefixSum-2 */
+        /* leetcode75-prefixSum-2 */
         int total = 0;
-        for (int num : nums) total += num;
+        for (int num : nums)
+            total += num;
 
         int leftSum = 0;
 
@@ -212,6 +214,42 @@ public class ArrayEasy {
 
         return -1;
     }
+
+    public static List<Integer> getRow(int rowIndex) {
+        // leetcode-118 pascals triangle
+
+        List<Integer> result = new ArrayList<>();
+        long val = 1;
+
+        result.add((int) val);
+
+        for (int i = 1; i <= rowIndex; i++) {
+            val = val * (rowIndex - i + 1) / i;
+            result.add((int) val);
+        }
+
+        return result;
+    }
+
+    public int minimumDistance(int[] nums) {
+        // leetcode-3740. Minimum Distance Between Three Equal Elements I
+        int min  = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i+1; j < nums.length; j++) {
+                if (nums[i]!=nums[j]) {
+                    continue ;
+                }
+                for (int k=j+1; k < nums.length; k++) {
+                    if (nums[j]==nums[k]) {
+                        int dist = 2 *(k-i);
+                        min = Math.min(min,dist);
+                    }
+                }
+            }
+        }
+        return min == Integer.MAX_VALUE? -1:min;
+    }
+
     public static void main(String[] args) {
         ArrayEasy obj = new ArrayEasy();
         int[] arr = new int[] { 0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1 };
@@ -219,5 +257,8 @@ public class ArrayEasy {
         boolean result = obj.canThreePartsEqualSum(arr);
         boolean canPlant = obj.canPlaceFlowers(flowerBed, 6);
         System.out.println(canPlant);
+
+        System.out.println("the pascals triangle for 3rd row elements are " + getRow(3));
+
     }
 }

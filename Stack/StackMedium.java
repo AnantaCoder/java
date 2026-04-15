@@ -2,6 +2,8 @@ package Stack;
 
 import java.util.Stack;
 
+import Recursion.subsequencesPattern;
+
 public class StackMedium {
     public String removeStars(String s) {
 
@@ -29,7 +31,7 @@ public class StackMedium {
 
     public int[] asteroidCollision(int[] asteroids) {
         // leetcode-735 Astroid collisions using stack
-        /* leetcode75-stack-1 */
+        /* leetcode75-stack-2 */
         // stack is first in last out
         Stack<Integer> stack = new Stack<>();
 
@@ -64,21 +66,67 @@ public class StackMedium {
 
     }
 
+    public String decodeString(String s) {
+        // leetcode-394 decoding string
+        /* leetcode75-stack-3 */
+
+        Stack<Integer> countStack = new Stack<>();
+        Stack<String> stringStack = new Stack<>();
+
+        String currentString = "";
+        int num = 0;
+
+        for (char ch : s.toCharArray()) {
+
+            if (Character.isDigit(ch)) {
+                num = num * 10 + (ch - '0');
+            }
+
+            else if (ch == '[') {
+                countStack.push(num);
+                stringStack.push(currentString);
+                num = 0;
+                currentString = "";
+            } else if (ch == ']') {
+                int repeat = countStack.pop();
+                String prev = stringStack.pop();
+
+                StringBuilder temp = new StringBuilder(prev);
+                for (int i = 0; i < repeat; i++) {
+                    temp.append(currentString);
+                }
+                currentString = temp.toString();
+            }
+            else{
+                currentString += ch;
+            }
+        }
+        return currentString;
+    }
+
     public static void main(String[] args) {
         StackMedium sm = new StackMedium();
 
-        // Test removeStars
-        System.out.println("=== removeStars ===");
-        System.out.println(sm.removeStars("leet**cod*e")); // expected: "lecoe"
-        System.out.println(sm.removeStars("erase*****")); // expected: ""
+        // // Test removeStars
+        // System.out.println("=== removeStars ===");
+        // System.out.println(sm.removeStars("leet**cod*e")); // expected: "lecoe"
+        // System.out.println(sm.removeStars("erase*****")); // expected: ""
 
-        // Test asteroidCollision
-        System.out.println("=== asteroidCollision ===");
-        System.out.println(java.util.Arrays.toString(sm.asteroidCollision(new int[] { 5, 10, -5 }))); // [5, 10]
-        System.out.println(java.util.Arrays.toString(sm.asteroidCollision(new int[] { 8, -8 }))); // []
-        System.out.println(java.util.Arrays.toString(sm.asteroidCollision(new int[] { 10, 2, -5 }))); // [10]
-        System.out.println(java.util.Arrays.toString(sm.asteroidCollision(new int[] { -2, -1, 1, 2 }))); // [-2, -1, 1,
-                                                                                                         // 2]
+        // // Test asteroidCollision
+        // System.out.println("=== asteroidCollision ===");
+        // System.out.println(java.util.Arrays.toString(sm.asteroidCollision(new int[] {
+        // 5, 10, -5 }))); // [5, 10]
+        // System.out.println(java.util.Arrays.toString(sm.asteroidCollision(new int[] {
+        // 8, -8 }))); // []
+        // System.out.println(java.util.Arrays.toString(sm.asteroidCollision(new int[] {
+        // 10, 2, -5 }))); // [10]
+        // System.out.println(java.util.Arrays.toString(sm.asteroidCollision(new int[] {
+        // -2, -1, 1, 2 }))); // [-2, -1, 1,
+
+        // decoding the strings
+        String s = "3[a]2[bc]";
+        System.out.println("decoded string is " + sm.decodeString(s));
+        // 2]
     }
 
 }
