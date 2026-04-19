@@ -5,7 +5,7 @@ import java.util.*;
 public class StringEasy {
 
     public boolean isValid(String s) {
-        // leetcode-20:
+        // leetcode-20: Valid Parenthesis 
         /*
          * Given a string s containing just the characters '(', ')', '{', '}', '[' and
          * ']', determine if the input string is valid.
@@ -44,7 +44,7 @@ public class StringEasy {
     }
 
     public boolean isPalindrome(String s) {
-        // leetcode-125 :
+        // leetcode-125 : valid palindrome
         // cleaning non optimal way
         /*
          * String cleaned = s.trim();
@@ -118,7 +118,7 @@ public class StringEasy {
     }
 
     public void reverseString(char[] s) {
-        // Reverse String : leetcode-344
+        // leetcode-344 reverse a string 
         int left = 0;
         int right = s.length - 1;
 
@@ -132,7 +132,7 @@ public class StringEasy {
     }
 
     public String mergeAlternately(String word1, String word2) {
-        // leetcode-1768
+        // leetcode-1768 Merge strings alternatively 
         /* leetcode75-1 */
 
         // we need to alternatively merge two strings

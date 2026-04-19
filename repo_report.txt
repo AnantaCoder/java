@@ -4,7 +4,7 @@ Leetcode Report: -----------
 6 - ZigZag
 11 - container with most water
 15 - 3Some Given an integer array nums, return all the triplets
-20
+20 - Valid Parenthesis
 21 - Merge Two Sorted Lists
 22 - generate parenthesis
 24 - swap nodes in pairs 
@@ -13,16 +13,16 @@ Leetcode Report: -----------
 88 - merge sorted arrays 
 100 - same tree
 118 - pascals triangle
-125
+125 - valid palindrome
 141 - LinkedList cycle
 148 - sort list
-162
+162 - find peak element using
 206 - reverse the linked list
 234 - palindrome LinkedList Check
 238 - Product of Array Except Self
 328 - Odd even linkedlist
 334 - Increasing triplet subsequence
-344
+344 - reverse a string
 345 - Reverse vowels of a string
 374 - Guess Number Higher or Lower
 387 - first unique charecter in string
@@ -32,7 +32,7 @@ Leetcode Report: -----------
 541 - Reverse String II
 605 - Can place flowers positioning n alternate position 010 like this
 643 - maximum avarage subarray
-724 - find pivot element (left most pivot index
+724 - find pivot element left most pivot index
 735 - Astroid collisions using stack
 872 - leaf similar tree
 876 - Middle of the Linked List
@@ -48,7 +48,7 @@ Leetcode Report: -----------
 1721 - swapping nodes in a Linked List
 1732 - Find the Highest Altitude
 1748 - Check if Binary String Has at Most One Segment of Ones
-1768
+1768 - Merge strings alternatively
 1855 - Maximum Distance Between a Pair of Values
 1980 - find unique binary string 
 2095 - Delete the Middle Node of a Linked List

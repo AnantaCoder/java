@@ -194,7 +194,7 @@ public class ArrayEasy {
 
     public int pivotIndex(int[] nums) {
 
-        // leetcode-724 find pivot element (left most pivot index)
+        // leetcode-724 find pivot element left most pivot index
         /* leetcode75-prefixSum-2 */
         int total = 0;
         for (int num : nums)
