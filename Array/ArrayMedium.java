@@ -321,6 +321,25 @@ return maxLeangth;
 
     }
 
+
+     public int maxDistance(int[] nums1, int[] nums2) {
+        //leetcode-1855. Maximum Distance Between a Pair of Values
+
+        // topics two pointers and binary search 
+        //brute force 
+
+        int maxDist =0;
+        for (int i = 0; i < nums1.length; i++) {
+            for (int j = 0; j < nums2.length; j++) {
+                if (nums1[i]<=nums2[j]) {
+                    maxDist=Math.max(maxDist, j-i);
+                    
+                }
+            }
+            
+        }
+        return maxDist;
+    }
     public static void main(String[] args) {
         ArrayMedium obj = new ArrayMedium();
         int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };

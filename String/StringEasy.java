@@ -301,6 +301,31 @@ public class StringEasy {
         return i == s.length();
     }
 
+    public String reverseStr(String s, int k) {
+        //leetcode-541. Reverse String II 
+        char[] str = s.toCharArray();
+        int len  = str.length;
+
+       for (int l = 0; l < len; l+=2*k) {
+           int left = l;
+           int right = Math.min(l+k-1,len-1);
+           reversePartsOfStrings(str, left, right);
+       }
+       return new String(str);
+
+    }
+    private void reversePartsOfStrings(char[] s,int left,int right){
+        // this is to reverse the entire string 
+
+        while(left<right){
+            char t = s[right];
+            s[right] = s[left];
+            s[left]=t;
+            left++;
+            right--;
+
+        }
+    }
     public int firstUniqChar(String s) {
         // leetcode-387 first unique charecter in string
        

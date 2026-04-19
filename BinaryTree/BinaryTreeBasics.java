@@ -46,16 +46,18 @@ public class BinaryTreeBasics {
     }
 
     // leaf node of a binary tree)(tree with no childern )
-    private List<Integer> leafNode(TreeNode root){
+    private List<Integer> leafNode(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        allLeafsOfTree(root,result);
+        allLeafsOfTree(root, result);
         return result;
 
     }
-    private void allLeafsOfTree(TreeNode root, List<Integer> result){
-        if(root==null) return;
-        // leaf node 
-        if(root.left==null&&root.right==null){
+
+    private void allLeafsOfTree(TreeNode root, List<Integer> result) {
+        if (root == null)
+            return;
+        // leaf node
+        if (root.left == null && root.right == null) {
             result.add(root.val);
             return;
         }
@@ -64,14 +66,34 @@ public class BinaryTreeBasics {
     }
 
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        //leetcode-872 leaf similar tree 
-        /*leetcode75-binaryTree-2 */
+        // leetcode-872 leaf similar tree
+        /* leetcode75-binaryTree-2 */
         List<Integer> result1 = new ArrayList<>();
         List<Integer> result2 = new ArrayList<>();
-        result1=leafNode(root1);
-        result2=leafNode(root2);
-        if(result1.size()!=result2.size())return false;
+        result1 = leafNode(root1);
+        result2 = leafNode(root2);
+        if (result1.size() != result2.size())
+            return false;
         return result1.equals(result2);
+
+    }
+
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        // leetcode-100 same tree
+
+        if (p==null && q==null) {
+            return true;
+        }
+        
+        if (p==null || q==null) {
+            return false;
+        }
+        
+        if (p.val!=q.val) {
+            return false;
+        }
+
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 
 
     }
@@ -79,11 +101,12 @@ public class BinaryTreeBasics {
     // maxDepth: recursively get depth of left and right subtrees, return 1 + max of
     // both
     public int maxDepth(TreeNode root) {
-        if (root == null)return 0;
+        if (root == null)
+            return 0;
         int maxLeft = maxDepth(root.left);
         int maxRight = maxDepth(root.right);
         int depth;
-        depth= 1 + Math.max(maxLeft, maxRight);
+        depth = 1 + Math.max(maxLeft, maxRight);
         return depth;
     }
 
