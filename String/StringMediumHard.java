@@ -1,7 +1,9 @@
 package String;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 public class StringMediumHard {
     public String totalSubstring(String s) {
@@ -149,7 +151,8 @@ public class StringMediumHard {
         /* leetcode75-slidingWindow-2 */
         // leetcode-1456 Maximum Number of Vowels in a Substring of Given Length
 
-        // this is optial solution ts O(n) spoace complexity O(1) no extra data structure 
+        // this is optial solution ts O(n) spoace complexity O(1) no extra data
+        // structure
         int maxVowels = 0;
         char[] vowels = s.toCharArray();
 
@@ -182,10 +185,47 @@ public class StringMediumHard {
         return maxVowels;
     }
 
-    public static String convert(String s, int numRows){
-        // leetcode-6 ZigZag
+    // public static String convert(String s, int numRows){
+    // // leetcode-6 ZigZag
+
+    // }
+
+    public List<String> twoEditWords(String[] queries, String[] dictionary) {
+        // leetcode-2452. Words Within Two Edits of Dictionary
+
+        // brute force approach 
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < queries.length; i++) {
+            String que = queries[i];
+            int lenQ = que.length();
+            for (int j = 0; j < dictionary.length; j++) {
+                String dic = dictionary[j];
+                int differances = 0;
+
+                // cout the differances
+
+                for (int k = 0; k < lenQ; k++) {
+
+                    if (que.charAt(k) != dic.charAt(k)) {
+                        differances += 1;
+                    }
+                    if (differances > 2)
+                        break;
+
+                }
+                if (differances <= 2) {
+                    result.add(que);
+                    break;
+                }
+            }
         
+        }
+        return result;
+        // O(n × m × k) this is the worst case time complexity 
+
+
     }
+
     public static void main(String[] args) {
         StringMediumHard obj = new StringMediumHard();
         String s = "abcabcbb";

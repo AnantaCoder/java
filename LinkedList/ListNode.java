@@ -282,6 +282,72 @@ class Solution {
 
     }
 
+    public ListNode rotateRight(ListNode head, int k) {
+        // leetcode-61 rotate list
+
+        if (head == null) {
+            return head;
+        }
+        // node1->node2->node3->node4 -> null
+        //  ^                      ^
+        // head                   tail
+
+        // what i understood depeding upon the k we need to move the k and thn lastNUll
+        // to the initial of initial node
+
+        // move to k
+        if (head == null || head.next == null || k == 0) return head;
+        ListNode temp = head;
+        int len = 1;
+
+        while (temp.next != null) {
+            temp = temp.next;
+            len++;
+        }
+
+        k = k%len;
+        if(k==0) return head;
+
+        //make it circular
+        temp.next = head;
+
+        ListNode newTail = head;
+        for (int i = 1; i < len-k; i++) {
+            newTail = newTail.next;
+        }
+
+        // breaking 
+
+        ListNode newHead = newTail.next;
+        newTail.next=null;
+
+        return newHead;
+
+    }
+
+    public int pairSum(ListNode head) {
+        //leetcode-2130. Maximum Twin Sum of a Linked List 
+        ArrayList<Integer> arr = new ArrayList<>();
+        ListNode curr = head;
+        
+        while (curr != null) {
+            arr.add(curr.val);
+            curr = curr.next;
+        }
+        int i = 0;
+        int j = arr.size() - 1;
+        int maxSum = 0;
+        
+        while (i < j) {
+            int sum = arr.get(i) + arr.get(j);
+            maxSum = Math.max(maxSum, sum);
+            i++;
+            j--;
+        }
+        
+        return maxSum;
+        
+    }
     // helper: build a linked list from an array
     private ListNode build(int[] vals) {
         ListNode dummy = new ListNode(0);

@@ -233,21 +233,74 @@ public class ArrayEasy {
 
     public int minimumDistance(int[] nums) {
         // leetcode-3740. Minimum Distance Between Three Equal Elements I
-        int min  = Integer.MAX_VALUE;
+        int min = Integer.MAX_VALUE;
         for (int i = 0; i < nums.length; i++) {
-            for (int j = i+1; j < nums.length; j++) {
-                if (nums[i]!=nums[j]) {
-                    continue ;
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] != nums[j]) {
+                    continue;
                 }
-                for (int k=j+1; k < nums.length; k++) {
-                    if (nums[j]==nums[k]) {
-                        int dist = 2 *(k-i);
-                        min = Math.min(min,dist);
+                for (int k = j + 1; k < nums.length; k++) {
+                    if (nums[j] == nums[k]) {
+                        int dist = 2 * (k - i);
+                        min = Math.min(min, dist);
                     }
                 }
             }
         }
-        return min == Integer.MAX_VALUE? -1:min;
+        return min == Integer.MAX_VALUE ? -1 : min;
+    }
+
+    public int maxDistance(int[] colors) {
+        // leetcode-2078 Two Furthest Houses With Different Colors
+
+        // brute force
+        // int max = 0;
+        // for (int i = 0; i < colors.length; i++) {
+        //     for (int j = i; j < colors.length; j++) {
+        //             if (colors[i]!=colors[j]) {
+        //                 max = Math.max(max, j-i);
+        //             }
+        //     }
+        // }
+        // return max;
+
+        // two pointers /* */
+        
+        int left =0;
+        int right = colors.length  -1;
+        int max = 0;
+
+        while (colors[left]==colors[colors.length-1]) {
+            left++;
+        }
+        while(colors[right]==colors[0]){
+            right --;
+        }
+
+        max = Math.max(colors.length-1-left, right);
+
+        return max;
+
+        
+
+       
+    }
+    public int[] separateDigits(int[] nums) {
+     //leetcode-2553. Separate the Digits in an Array
+     List<Integer> list = new ArrayList<>();
+     int len = nums.length;
+     for (int i : nums) {
+        list.add(digits(i));
+     }
+     
+     
+    }
+    private int digits(int d){
+
+        int remainder = d%10;
+        d /= 10;
+        return remainder; 
+
     }
 
     public static void main(String[] args) {
