@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.HashSet;
+
 public class MergeSort {
 
     // devide and concure techniques . arrays devides into 2 section recursively
@@ -53,11 +56,42 @@ public class MergeSort {
             arr[k++] = rightArr[j++];
         }
     }
+    public boolean containsDuplicate(int[] nums) {
+        //leetcode-217 contains duplicates
+
+        // good (best in terms of complexity) o(logn)
+        // Arrays.sort(nums);
+        // for(int num:nums){
+        //     System.out.println(num+" ");
+        // }
+        // for(int i=0;i<nums.length-1;i++){
+        //     if(nums[i]==nums[i+1]){
+        //         return true;
+        //     }
+            
+        // }
+        // return false;
+
+        // better O(nlogn)
+        HashSet<Integer> set = new HashSet<>();
+        for(int num:nums){
+            if(set.contains(num)) return true;
+            else{
+                set.add(num);
+            }
+
+        }
+        return false;
+
+        
+    }
+
 
     public static void main(String[] args) {
         int[] arr = new int[] { 45, 154, 52, 4, 52, 122, 445, 7454, 5 };
 
-        MergeSort(arr, 0, arr.length - 1);B
+        // MergeSort(arr, 0, arr.length - 1);
+        Arrays.sort(arr);
 
         for (int num : arr) {
             System.out.print(num + " ");

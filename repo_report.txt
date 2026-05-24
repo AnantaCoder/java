@@ -20,6 +20,7 @@ Leetcode Report: -----------
 148 - sort list
 162 - find peak element using
 206 - reverse the linked list
+217 - contains duplicates
 232 - Implimenting Queue using stack
 234 - palindrome LinkedList Check
 238 - Product of Array Except Self
@@ -64,4 +65,5 @@ Leetcode Report: -----------
 2390 - Removing Stars From a String
 2452 - Words Within Two Edits of Dictionary
 2553 - Separate the Digits in an Array
+3043 - Find the Length of the Longest Common Prefix
 3740 - Minimum Distance Between Three Equal Elements I

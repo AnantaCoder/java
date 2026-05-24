@@ -2,6 +2,7 @@ package Array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayMedium {
@@ -276,21 +277,21 @@ public class ArrayMedium {
         int maxZeros = 0;
 
         // window 1{}
-        for (int right=0; right < nums.length; right++) {
+        for (int right = 0; right < nums.length; right++) {
             if (nums[right] == 0) {
                 maxZeros++;
             }
-            while (maxZeros>1) {
-                if (nums[left]==0) {
+            while (maxZeros > 1) {
+                if (nums[left] == 0) {
                     maxZeros--;
                 }
                 left++;
             }
-            int differance   = right-left;
+            int differance = right - left;
 
-           maxLeangth = Math.max(maxLeangth, differance);
+            maxLeangth = Math.max(maxLeangth, differance);
         }
-return maxLeangth;
+        return maxLeangth;
     }
 
     public int longestOnes(int[] nums, int k) {
@@ -321,34 +322,80 @@ return maxLeangth;
 
     }
 
+    public int maxDistance(int[] nums1, int[] nums2) {
+        // leetcode-1855. Maximum Distance Between a Pair of Values
 
-     public int maxDistance(int[] nums1, int[] nums2) {
-        //leetcode-1855. Maximum Distance Between a Pair of Values
+        // topics two pointers and binary search
+        // brute force
 
-        // topics two pointers and binary search 
-        //brute force 
-
-        int maxDist =0;
+        int maxDist = 0;
         for (int i = 0; i < nums1.length; i++) {
             for (int j = 0; j < nums2.length; j++) {
-                if (nums1[i]<=nums2[j]) {
-                    maxDist=Math.max(maxDist, j-i);
-                    
+                if (nums1[i] <= nums2[j]) {
+                    maxDist = Math.max(maxDist, j - i);
+
                 }
             }
-            
+
         }
         return maxDist;
     }
+
+    public int longestCommonPrefix(int[] arr1, int[] arr2) {
+        // leetcode-3043. Find the Length of the Longest Common Prefix
+
+        int longest = 0;
+        for (int i = 0; i < arr1.length; i++) {
+
+            for (int j = 0; j < arr2.length; j++) {
+
+                List<Integer> d1 = getDigits(arr1[i]);
+                List<Integer> d2 = getDigits(arr2[j]);
+
+                int count = 0;
+
+                int minLength = Math.min(d1.size(), d2.size()); // so i can loop till minimum 
+                for (int k = 0; k < minLength; k++) {
+                    if (d1.get(k).equals(d2.get(k))) {
+                        count ++;
+                    }else{
+                        break;
+                    }
+                }
+                longest = Math.max(longest, count);
+            }
+
+        }
+        return longest;
+
+    }
+
+    // helper funmction to extract digits 
+    public List<Integer> getDigits(int num) {
+        List<Integer> digits = new ArrayList<>();
+
+        if (num == 0) {
+            digits.add(0);
+            return digits;
+        }
+        num = Math.abs(num);
+        while (num > 0) {
+            digits.add(num % 10);
+            num /= 10;
+        }
+        Collections.reverse(digits);
+        return digits;
+    }
+
     public static void main(String[] args) {
         ArrayMedium obj = new ArrayMedium();
         int[][] matrix = { { 1, 3, 5, 7 }, { 10, 11, 16, 20 }, { 23, 30, 34, 60 } };
         System.out.println(obj.searchMatrix(matrix, 3));
         System.out.println(obj.searchMatrix(matrix, 13));
-        int[] nums = new int[]{0,1,1,1,0,1,1,0,1};
+        int[] nums = new int[] { 0, 1, 1, 1, 0, 1, 1, 0, 1 };
         char[] chars = new char[] { 'a', 'a', 'b', 'b', 'c', 'c', 'c' };
         System.out.println("the length of the compresses string is " + obj.compress(chars));
-        System.out.println("this string with max zeros after removikng one element is : "+obj.longestSubarray(nums));
+        System.out.println("this string with max zeros after removikng one element is : " + obj.longestSubarray(nums));
     }
 
 }
