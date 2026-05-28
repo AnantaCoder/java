@@ -1,0 +1,25 @@
+//--------must practice questions-----------------
+1. binary search 
+2. binary search trees 
+3. linked lists 
+4. arrays(sliding window, prefix sum , maths , more complex , subarrays )
+5. Dynamic programing 
+6. Graphs 
+7. stacks (Min stacks )
+
+//------------------important patterns 
+1. Prefix Sum
+2. Two Pointers
+3. Sliding Window
+4. Fast & Slow Pointers
+5. Linked List Reversal
+6. Monotonic Stack
+7. Top K Elements
+8. Overlapping Intervals
+9. Modified Binary Search
+10. Binary Tree Traversal
+11. Depth First Search (DFS)
+12. Breadth First Search (BFS)
+13. Matrix Traversal
+14. Backtracking
+15. Dynamic Programming (DP)

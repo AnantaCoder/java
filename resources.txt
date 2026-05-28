@@ -11,3 +11,8 @@ https://leetcode.com/discuss/post/460599/blind-75-leetcode-questions-by-krishnad
 
 4. Leetcode 75 series for the interviews 
 https://leetcode.com/studyplan/leetcode-75/
+
+
+
+/////////////////sliding window substring problems approach 
+https://leetcode.com/problems/find-all-anagrams-in-a-string/solutions/92007/sliding-window-algorithm-template-to-sol-qtjr

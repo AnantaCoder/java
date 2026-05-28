@@ -122,6 +122,29 @@ class Solution {
         return false;
     }
 
+    public ListNode deleteDuplicates(ListNode head) {
+        //leetcode-83 Remove Duplicates from sorted list
+
+        //two pointer approach 
+        if(head==null || head.next==null){
+            return head;
+        }
+        ListNode slow=head;
+        ListNode fast=head.next;
+
+        while(fast!=null){
+            if (slow.val==fast.val) {
+                slow.next=fast.next;
+                fast=fast.next;
+                
+            }else{
+                slow = slow.next;
+                fast = fast.next;
+            }
+        }
+        return head;
+    }
+
     public ListNode oddEvenList(ListNode head) {
         // leetcode-328 Odd even linkedlist
         /* leetcode75-linkedList-2 */
