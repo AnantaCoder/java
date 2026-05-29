@@ -97,24 +97,24 @@ public class BinaryTreeBasics {
         return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 
     }
+
     public List<Integer> inorderTraversal(TreeNode root) {
 
-        // leetcode-94. Binary Tree Inorder Traversal . 
-    List<Integer> res = new ArrayList();
-    helper(res,root);
-    return res;
+        // leetcode-94. Binary Tree Inorder Traversal .
+        List<Integer> res = new ArrayList();
+        helper(res, root);
+        return res;
     }
-    private void helper(List<Integer> res , TreeNode root){
-        if(root==null){
-            return ;
+
+    private void helper(List<Integer> res, TreeNode root) {
+        if (root == null) {
+            return;
         }
-        // left -> node -> right 
-        helper(res,root.left);
+        // left -> node -> right
+        helper(res, root.left);
         res.add(root.val);
-        helper(res,root.right);
+        helper(res, root.right);
     }
-
-
 
     public int goodNodes(TreeNode root) {
         // leetcode-1448. Count Good Nodes in Binary Tree
@@ -138,43 +138,66 @@ public class BinaryTreeBasics {
 
     }
 
+    // -----------------------------------------------
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        //leetcode-102 Binary Tree Level Order Traversal
+        List<List<Integer>> result = new ArrayList<>();
+        dfs(root, 0, result);
+        return result;
+    }
 
-    public int pathSum(TreeNode root,int targetSum){
-        // leetcode-437 path  III
+    private void dfs(TreeNode root, int level, List<List<Integer>> result) {
+        if (root == null)
+            return;
 
-    //-------------------------------------brute force approach -----------------------------------
+        if (result.size() == level) {
+            result.add(new ArrayList<>());
+        }
 
-        if (root==null) {
+        result.get(level).add(root.val);
+        dfs(root.left, level + 1, result);
+        dfs(root.right, level + 1, result);
+    }
+    // -----------------------------------------------
+
+    public int pathSum(TreeNode root, int targetSum) {
+        // leetcode-437 path III
+
+        // -------------------------------------brute force approach
+        // -----------------------------------
+
+        if (root == null) {
             return 0;
-            
+
         }
         int counter = newDfs(root, targetSum);
         int left = pathSum(root.left, targetSum);
         int right = pathSum(root.right, targetSum);
 
-        return counter+left+right;
-    //-------------------------------------brute force approach -----------------------------------
+        return counter + left + right;
+        // -------------------------------------brute force approach
+        // -----------------------------------
 
-        
     }
 
-    private int newDfs(TreeNode node, long target){ //int target , Just change it to long, bc it's integer overflow.
-        if (node==null) {
+    private int newDfs(TreeNode node, long target) { // int target , Just change it to long, bc it's integer overflow.
+        if (node == null) {
             return 0;
-            
+
         }
-        int count =0;
-        if (node.val ==target) {
-            count ++;
+        int count = 0;
+        if (node.val == target) {
+            count++;
         }
 
-        // continue path downward 
-        count += newDfs(node.left, target-node.val);
-        count += newDfs(node.right, target-node.val);
+        // continue path downward
+        count += newDfs(node.left, target - node.val);
+        count += newDfs(node.right, target - node.val);
 
         return count;
 
     }
+
     // maxDepth: recursively get depth of left and right subtrees, return 1 + max of
     // both
     public int maxDepth(TreeNode root) {

@@ -11,9 +11,11 @@ Leetcode Report: -----------
 39 - combination sum
 61 - rotate list
 74 - search in 2d matrix 
+83 - Remove Duplicates from sorted list
 88 - merge sorted arrays 
 94 - Binary Tree Inorder Traversal 
 100 - same tree
+102 - Binary Tree Level Order Traversal
 118 - pascals triangle
 125 - valid palindrome
 141 - LinkedList cycle
@@ -28,11 +30,12 @@ Leetcode Report: -----------
 334 - Increasing triplet subsequence
 344 - reverse a string
 345 - Reverse vowels of a string
+349 - Intersection of Two Arrays
 374 - Guess Number Higher or Lower
 387 - first unique charecter in string
 392 - is Sub seqquence
 394 - decoding string
-437 - path  III
+437 - path III
 443 - String Comparison
 541 - Reverse String II
 605 - Can place flowers positioning n alternate position 010 like this
