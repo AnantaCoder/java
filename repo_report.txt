@@ -44,9 +44,11 @@ Leetcode Report: -----------
 735 - Astroid collisions using stack
 872 - leaf similar tree
 876 - Middle of the Linked List
+930 - Binary substring with sum
 1004 - Max consicutive ones III 
 1071 - Greatest Common Divisor of Strings
 1207 - Unique number of Occurances
+1248 - count the number of nice subarrays
 1262 - Given an integer array nums, return the maximum possible sum of
 1431 - Kids With the Greatest Number of
 1448 - Count Good Nodes in Binary Tree
