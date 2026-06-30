@@ -57,6 +57,33 @@ public class StringMediumHard {
 
     }
 
+    public int numberOfSubstrings(String s) {
+
+        //leetcode-1358. Number of Substrings Containing All Three Characters
+        int[] freq = new int[3];
+
+
+        int left = 0 ;
+        int ans = 0;
+
+        for(int right = 0;right <s.length();right ++){
+
+            freq[s.charAt(right)-'a']++;
+
+            while(freq[0]>0 && freq[1]>0 && freq[2]>0){
+                ans += s.length() - right;
+
+                freq[s.charAt(left)-'a']--;
+
+                left++;
+            }
+
+        }
+
+
+        return ans;
+    }
+
     public String reverseWords(String s) {
 
         StringBuilder reversed = new StringBuilder();

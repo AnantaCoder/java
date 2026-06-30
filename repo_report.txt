@@ -4,6 +4,7 @@ Leetcode Report: -----------
 6 - ZigZag
 11 - container with most water
 15 - 3Some Given an integer array nums, return all the triplets
+17 - Letter Combinations of a Phone Number
 20 - Valid Parenthesis
 21 - Merge Two Sorted Lists
 22 - generate parenthesis
@@ -11,8 +12,10 @@ Leetcode Report: -----------
 39 - combination sum
 61 - rotate list
 74 - search in 2d matrix 
+78 - Subsets
 83 - Remove Duplicates from sorted list
 88 - merge sorted arrays 
+90 - Subsets II
 94 - Binary Tree Inorder Traversal 
 100 - same tree
 102 - Binary Tree Level Order Traversal
@@ -22,6 +25,9 @@ Leetcode Report: -----------
 148 - sort list
 162 - find peak element using
 206 - reverse the linked list
+209 - Minimum Size Subarray Sum
+215 - Kth Largest Element in an Array
+216 - Combination Sum III
 217 - contains duplicates
 232 - Implimenting Queue using stack
 234 - palindrome LinkedList Check
@@ -32,12 +38,14 @@ Leetcode Report: -----------
 345 - Reverse vowels of a string
 349 - Intersection of Two Arrays
 374 - Guess Number Higher or Lower
+377 - Combination sum IV
 387 - first unique charecter in string
 392 - is Sub seqquence
 394 - decoding string
 437 - path III
 443 - String Comparison
 541 - Reverse String II
+547 - number of provinces
 605 - Can place flowers positioning n alternate position 010 like this
 643 - maximum avarage subarray
 724 - find pivot element left most pivot index
@@ -45,14 +53,19 @@ Leetcode Report: -----------
 872 - leaf similar tree
 876 - Middle of the Linked List
 930 - Binary substring with sum
+994 - Rotting Oranges
 1004 - Max consicutive ones III 
 1071 - Greatest Common Divisor of Strings
 1207 - Unique number of Occurances
 1248 - count the number of nice subarrays
 1262 - Given an integer array nums, return the maximum possible sum of
+1318 - Minimum Flips to Make a OR b Equal to c
+1343 - Number of Sub-arrays of Size K and Average >= Threshold
+1358 - Number of Substrings Containing All Three Characters
 1431 - Kids With the Greatest Number of
 1448 - Count Good Nodes in Binary Tree
 1456 - Maximum Number of Vowels in a Substring of Given Length
+1464 - Maximum Product of Two Elements in an Array
 1493 - Longest subarray of 1s after deleting one element
 1657 - Determine if Two Strings Are Close
 1679 - Max Number of K-Sum Pairs
@@ -66,9 +79,12 @@ Leetcode Report: -----------
 2095 - Delete the Middle Node of a Linked List
 2130 - Maximum Twin Sum of a Linked List
 2215 - Find the Difference of Two Arrays
+2300 - Successful Pairs of Spells and Potions
+2336 - Smallest Number in Infinite Set
 2353 - Equal row and column pairs
 2390 - Removing Stars From a String
 2452 - Words Within Two Edits of Dictionary
+2462 - Total Cost to Hire K Workers
 2553 - Separate the Digits in an Array
 3043 - Find the Length of the Longest Common Prefix
 3740 - Minimum Distance Between Three Equal Elements I
