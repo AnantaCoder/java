@@ -1,0 +1,95 @@
+7-Day Graph Interview Roadmap
+
+Day 1 - Graph Basics Topics: - Adjacency List - DFS - BFS - Connected
+Components
+
+Problems: 1. LC 547 - Number of Provinces 2. LC 1971 - Find if Path
+Exists in Graph 3. LC 841 - Keys and Rooms 4. LC 133 - Clone Graph
+
+Tip: - Master writing DFS and BFS from memory.
+
+Daily Revision (20-30 min): - Rewrite DFS template. - Rewrite BFS
+template. - Explain adjacency list aloud.
+
+------------------------------------------------------------------------
+
+Day 2 - Grid Graphs Topics: - DFS on Grid - BFS on Grid - 4-direction
+traversal
+
+Problems: 1. LC 200 - Number of Islands 2. LC 695 - Max Area of Island
+3. LC 733 - Flood Fill 4. LC 994 - Rotting Oranges 5. LC 130 -
+Surrounded Regions
+
+Tip: - Every cell is a graph node.
+
+Daily Revision: - Rewrite DFS. - Rewrite BFS. - Solve Number of Islands
+again without notes.
+
+------------------------------------------------------------------------
+
+Day 3 - Cycle Detection Topics: - Undirected Cycle - Directed Cycle
+
+Problems: 1. GFG Detect Cycle in Undirected Graph (DFS) 2. GFG Detect
+Cycle in Undirected Graph (BFS) 3. LC 207 - Course Schedule 4. LC 210 -
+Course Schedule II
+
+Tip: - Undirected -> Parent - Directed -> pathVisited[]
+
+Daily Revision: - DFS template - BFS template - Cycle Detection
+templates
+
+------------------------------------------------------------------------
+
+Day 4 - Topological Sort Topics: - DFS Topological Sort - Kahn’s
+Algorithm
+
+Problems: 1. LC 210 - Course Schedule II 2. GFG Topological Sort 3. GFG
+Alien Dictionary 4. LC 802 - Find Eventual Safe States
+
+Tip: - DAG = Topological Sort.
+
+Daily Revision: - Rewrite Kahn’s Algorithm. - Rewrite DFS Topological
+Sort.
+
+------------------------------------------------------------------------
+
+Day 5 - Shortest Path Topics: - BFS Shortest Path - Dijkstra
+
+Problems: 1. LC 1091 - Shortest Path in Binary Matrix 2. LC 743 -
+Network Delay Time 3. LC 787 - Cheapest Flights Within K Stops
+
+Tip: - Unweighted -> BFS - Weighted -> Dijkstra
+
+Daily Revision: - Rewrite Dijkstra. - Compare BFS vs Dijkstra.
+
+------------------------------------------------------------------------
+
+Day 6 - Union Find (DSU) Topics: - Find - Union - Path Compression -
+Union by Rank
+
+Problems: 1. LC 547 - Number of Provinces (DSU) 2. LC 684 - Redundant
+Connection 3. LC 721 - Accounts Merge
+
+Tip: - Think in connected components.
+
+Daily Revision: - Rewrite DSU template. - Solve Redundant Connection
+again.
+
+------------------------------------------------------------------------
+
+Day 7 - Mock Interview Day
+
+Do NOT learn anything new.
+
+Tasks: - Write DFS from memory. - Write BFS from memory. - Write
+Directed Cycle Detection. - Write Undirected Cycle Detection. - Write
+Topological Sort. - Write Dijkstra. - Write DSU.
+
+Mock Problems: 1. LC 200 2. LC 207 3. LC 210 4. LC 743 5. LC 684
+
+Final Checklist: [ ] DFS [ ] BFS [ ] Grid DFS/BFS [ ] Directed Cycle [ ]
+Undirected Cycle [ ] Topological Sort [ ] Dijkstra [ ] DSU
+
+Golden Rule: Identify the pattern first: - Traversal -> DFS/BFS - Cycle
+-> Cycle Detection - Order -> Topological Sort - Minimum Distance ->
+Dijkstra - Components -> DSU

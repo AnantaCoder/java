@@ -21,6 +21,7 @@ Leetcode Report: -----------
 102 - Binary Tree Level Order Traversal
 118 - pascals triangle
 125 - valid palindrome
+133 - clone craph
 141 - LinkedList cycle
 148 - sort list
 162 - find peak element using
@@ -50,6 +51,7 @@ Leetcode Report: -----------
 643 - maximum avarage subarray
 724 - find pivot element left most pivot index
 735 - Astroid collisions using stack
+841 - Keys and Rooms
 872 - leaf similar tree
 876 - Middle of the Linked List
 930 - Binary substring with sum
@@ -74,6 +76,7 @@ Leetcode Report: -----------
 1748 - Check if Binary String Has at Most One Segment of Ones
 1768 - Merge strings alternatively
 1855 - Maximum Distance Between a Pair of Values
+1971 - Find if Path Exists in Graph
 1980 - find unique binary string 
 2078 - Two Furthest Houses With Different Colors
 2095 - Delete the Middle Node of a Linked List

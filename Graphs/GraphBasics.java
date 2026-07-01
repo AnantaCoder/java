@@ -4,7 +4,7 @@ import java.util.*;
 
 public class GraphBasics {
 
-    public void dfs(Map<Integer, List<Integer>> graph, int start){
+    public void bfs(Map<Integer, List<Integer>> graph, int start){
         //Use BFS for: shortest path in unweighted graph, level-order problems.
         Set<Integer> visited = new HashSet<>();
         Queue<Integer> queue = new LinkedList<>();
@@ -29,7 +29,6 @@ public class GraphBasics {
         }
     }
 
-
     void dfs(Map<Integer, List<Integer>> graph, int node, Set<Integer> visited) {
 
     //Use DFS for: cycle detection, connected components, topological sort.
@@ -42,9 +41,6 @@ public class GraphBasics {
         }
     }
 }
-
-
-
 
     public static void main(String[] args) {
 
@@ -67,5 +63,7 @@ public class GraphBasics {
         // 3. Edge List
         int[][] edges = { { 0, 1 }, { 1, 2 }, { 2, 3 } };
         // Used for algorithms like Kruskal's MST.
+
+        
     }
 }

@@ -2,7 +2,7 @@ package Graphs;
 
 import java.util.*;
 
-public class BfsDfs {
+public class BfsDfs extends Node {
     public int findCircleNum(int[][] isConnected) {
         // leetcode-547 number of provinces
 
@@ -72,7 +72,7 @@ public class BfsDfs {
         }
         ;
     }
-    // ----------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------
 
     public int findCircleNum2(int[][] isConnected) {
         boolean[] visited = new boolean[isConnected.length];
@@ -101,7 +101,7 @@ public class BfsDfs {
 
     }
 
-    // -----------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------
 
     public int orangesRotting(int[][] grid) {
         // leetcode-994. Rotting Oranges
@@ -157,7 +157,7 @@ public class BfsDfs {
             return -1;
 
         int minutes = -1;
-        int[][] dirs = { { 1, 0 }, { -1, 0 }, { 0, -1 }, { 0, 1 } }; // up down left right 
+        int[][] dirs = { { 1, 0 }, { -1, 0 }, { 0, -1 }, { 0, 1 } }; // up down left right
         while (!queue.isEmpty()) {
             int size = queue.size();
 
@@ -182,14 +182,14 @@ public class BfsDfs {
             minutes++;
 
         }
-        if (countFreshOranges==0) {
+        if (countFreshOranges == 0) {
             return minutes;
         }
 
         return -1;
 
     }
-    //--------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------------------
 
     public int[][] floodFill(int[][] image, int sr, int sc, int color) {
 
@@ -204,17 +204,18 @@ public class BfsDfs {
 
         return image;
     }
-     private void Colordfs(int[][] image, int row, int col, int originalColor, int newColor) {
 
+    private void Colordfs(int[][] image, int row, int col, int originalColor, int newColor) {
 
-        //base 
+        // base
 
-        if(row<0 || row>= image.length || col<0 || col >= image[0].length)  return;
+        if (row < 0 || row >= image.length || col < 0 || col >= image[0].length)
+            return;
 
+        if (image[row][col] != originalColor)
+            return; // diff color
 
-        if(image[row][col] != originalColor )   return; //diff color 
-
-        // current 
+        // current
 
         image[row][col] = newColor;
 
@@ -222,5 +223,150 @@ public class BfsDfs {
         Colordfs(image, row + 1, col, originalColor, newColor); // Down
         Colordfs(image, row, col - 1, originalColor, newColor); // Left
         Colordfs(image, row, col + 1, originalColor, newColor); // Right
-     }
+    }
+
+    // -------------------------------------------------------------------------------------------
+
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        // leetcode-1971. Find if Path Exists in Graph
+        List<List<Integer>> adjList = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            adjList.add(new ArrayList<>());
+        }
+
+        for (int[] edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+
+            adjList.get(u).add(v);
+            adjList.get(v).add(u);
+        }
+
+        boolean[] visited = new boolean[n];
+
+        return dfsHelper(
+                adjList,
+                visited,
+                source,
+                destination);
+    }
+
+    private boolean dfsHelper(List<List<Integer>> adjList,
+            boolean[] visited,
+            int vertex,
+            int destination) {
+
+        if (vertex == destination) {
+            return true;
+        }
+
+        visited[vertex] = true;
+
+        for (int neighbour : adjList.get(vertex)) {
+
+            if (!visited[neighbour]) {
+
+                if (dfsHelper(
+                        adjList,
+                        visited,
+                        neighbour,
+                        destination)) {
+
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    // -------------------------------------------------------------------------------------------
+
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        // leetcode-841. Keys and Rooms
+        boolean[] visited = new boolean[rooms.size()];
+        // Queue<Integer> queue = new LinkedList<>();
+
+        // visited[0] = true;
+        // queue.add(0);
+
+        // int roomsVisitedCount = 1;
+
+        // while (!queue.isEmpty()) {
+        // int current = queue.poll();
+
+        // for(int key : rooms.get(current)){
+        // if(!visited[key]){
+        // visited[key] = true;
+        // queue.add(key);
+        // roomsVisitedCount++;
+
+        // if(roomsVisitedCount== rooms.size()){
+        // return true;
+        // }
+        // }
+        // }
+
+        // }
+
+        // return roomsVisitedCount==rooms.size();
+
+        dfsKeysRooms(rooms, visited, 0);
+
+        for (boolean v : visited) {
+            if (!v)
+                return false;
+        }
+        return true;
+    }
+
+    private void dfsKeysRooms(List<List<Integer>> rooms, boolean[] visited, int room) {
+        visited[room] = true;
+
+        for (int key : rooms.get(room)) {
+            if (!visited[key]) {
+                dfsKeysRooms(rooms, visited, key);
+            }
+        }
+    }
+
+    // -------------------------------------------------------------------------------------------
+    private Map<Node, Node> map = new HashMap<>();
+    public Node cloneGraph(Node node) {
+        // leetcode-133 clone craph 
+        if(node == null) return null;
+
+        if(map.containsKey(node)){
+            return map.get(node);
+        }
+
+        Node clone = new Node(node.val);
+
+        map.put(node, clone);
+
+        for(Node neigh : node.neighbors){
+            clone.neighbors.add((cloneGraph(neigh)));
+        }
+        return clone;
+    }
+
+    //--------------------------------------------------------------------------------------------
+}
+
+class Node {
+    public int val;
+    public List<Node> neighbors;
+    public Node() {
+        val = 0;
+        neighbors = new ArrayList<Node>();
+    }
+    public Node(int _val) {
+        val = _val;
+        neighbors = new ArrayList<Node>();
+    }
+    public Node(int _val, ArrayList<Node> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
 }
